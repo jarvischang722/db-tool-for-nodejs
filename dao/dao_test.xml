@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<dao name="test_mssql">
+		<statement><![CDATA[SELECT * FROM test WHERE id = ?]]></statement>
+		<parameter type="int">id</parameter>
+	</dao>
+	<dao name="test_mssql2">
+		<statement><![CDATA[SELECT * FROM test ORDER BY id desc]]></statement>
+	</dao>
+	<dao name="test_mssql3">
+		<statement><![CDATA[SELECT * FROM test WHERE name like ?]]></statement>
+		<parameter type="likestring">name</parameter>
+	</dao>
+	<dao name="test_mssql4">
+		<statement><![CDATA[SELECT * FROM test WHERE ct_date = :ct_date]]></statement>
+		<parameter type="date" kind="3">ct_date</parameter>
+	</dao>
+	<dao name="test_mssql5">
+		<statement><![CDATA[SELECT * FROM test WHERE ct_date = :ct_date]]></statement>
+		<statement test="_d(param.aa) == 2"><![CDATA[and name like :name]]></statement>
+		<parameter type="date" kind="3">ct_date</parameter>
+		<parameter type="likestring" kind="3">name</parameter>
+	</dao>
+	<dao name="test_mysql">
+		<statement><![CDATA[select * from member where seq = ?]]></statement>
+		<parameter type="int">seq</parameter>
+	</dao>
+	<dao name="a_member_by_name">
+		<statement><![CDATA[select * from member where name = ?]]></statement>
+		<parameter type="String">name</parameter>
+	</dao>
+	<dao name="qa_m1">
+		<statement><![CDATA[select * from m1]]></statement>
+	</dao>
+	<dao name="qa_m2">
+		<statement><![CDATA[select * from m2]]></statement>
+	</dao>
+	<dao name="update_m1_address">
+		<statement><![CDATA[update m1 set city=?,area=?,address=?,email=?,comment1=? where seq=?]]></statement>
+		<parameter type="String">city</parameter>
+		<parameter type="String">area</parameter>
+		<parameter type="String">address</parameter>
+		<parameter type="String">email</parameter>
+		<parameter type="String">comment1</parameter>
+		<parameter type="int">seq</parameter>
+	</dao>
+	<dao name="update_m2_address">
+		<statement><![CDATA[update m2 set city=?,area=?,address=?,email=?,comment1=? where seq=?]]></statement>
+		<parameter type="String">city</parameter>
+		<parameter type="String">area</parameter>
+		<parameter type="String">address</parameter>
+		<parameter type="String">email</parameter>
+		<parameter type="String">comment1</parameter>
+		<parameter type="int">seq</parameter>
+	</dao>
+</root>

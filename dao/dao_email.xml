@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<dao name="test_error">
+		<statement><![CDATA[SELECT * FROM hotel_rf  WHERE hotel_cod = ? and hotel_nam like ? and aa =1]]></statement>
+		<parameter type="likestring" kind="2" condition="atten1_add like ?">atten1_add</parameter>
+		<parameter type="int">hotel_cod</parameter>
+		<parameter type="likestring">hotel_nam</parameter>
+	</dao>
+	<dao name="test">
+		<statement><![CDATA[SELECT * FROM hotel_rf  WHERE hotel_cod = ? and hotel_nam like ?]]></statement>
+		<parameter type="likestring" kind="2" condition="atten1_add like ?">atten1_add</parameter>
+		<parameter type="int">hotel_cod</parameter>
+		<parameter type="likestring">hotel_nam</parameter>
+	</dao>
+	<dao name="test2">
+		<statement><![CDATA[SELECT * FROM hotel_rf  WHERE hotel_nam like ?]]></statement>
+		<parameter type="likestring" kind="2" condition="atten1_add like ?">atten1_add</parameter>
+		<parameter type="likestring">hotel_nam</parameter>
+	</dao>
+	<dao name="test_test">
+		<statement><![CDATA[SELECT hotel_nam FROM hotel_rf  WHERE hotel_cod = ?]]></statement>
+		<statement test="_d(param.aa) == 2"><![CDATA[and hotel_nam like :hotel_nam]]></statement>
+		<parameter type="likestring" kind="2" condition="atten1_add like ?">atten1_add</parameter>
+		<parameter type="int">hotel_cod</parameter>
+		<parameter type="likestring" kind="3">hotel_nam</parameter>
+		<groupby test="_d(param.aa) == 2">group by hotel_nam</groupby>
+		<orderby test="_d(param.aa) == 2">order by hotel_nam</orderby>
+	</dao>
+	<dao name="test_test2">
+		<statement><![CDATA[SELECT * FROM ORWS_RMORDER_MN WHERE hotel_cod = ? and keep_dat >= ?]]></statement>
+		<parameter type="int">hotel_cod</parameter>
+		<parameter type="date">keep_dat</parameter>
+	</dao>
+	<dao name="test3">
+		<statement><![CDATA[SELECT hotel_cod,hotel_nam FROM hotel_rf]]></statement>
+	</dao>
+</root>

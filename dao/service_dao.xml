@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<struts-config>
+    <sql-sources>
+        <sql-source base="true" comment="user" key="user" path="dao_email.xml"/>
+        <sql-source base="true" comment="test" key="test" path="dao_test.xml"/>
+
+    </sql-sources>
+</struts-config>
